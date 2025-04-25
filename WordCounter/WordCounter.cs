@@ -36,9 +36,18 @@ public class WordCounter
 
     public void PrintWordCounts(ConcurrentDictionary<string, int> wordCounts)
     {
-        foreach (var pair in wordCounts)
+        if (wordCounts == null || wordCounts.IsEmpty)
         {
-            Console.WriteLine($"{pair.Value}: {pair.Key}");
+            Console.WriteLine("No words found.");
+            return;
+        }
+        else
+        {
+            Console.WriteLine("Words count: ");
+            foreach (var pair in wordCounts)
+            {
+                Console.WriteLine($"{pair.Value}: {pair.Key}");
+            }
         }
     }
 }
